@@ -1,2 +1,3 @@
-# shoes_ecomm_app
-Ecommerce shoes application
+# shoesapp
+
+A new Flutter project.
