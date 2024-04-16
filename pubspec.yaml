@@ -22,7 +22,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
+    - assets/images/
+    - assets/images/startpages/
+    - assets/images/loginpage/
+
   fonts:
     - family: AirbnbCereal
       fonts:
