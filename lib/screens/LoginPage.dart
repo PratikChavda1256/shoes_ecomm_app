@@ -9,33 +9,36 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-
-        body: Container(
-          margin: const EdgeInsets.all(24),
-          color: ShoesColors.loginBg,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _header(context),
-              _inputField(context),
-              _forgotPassword(context),
-              _signup(context),
-            ],
-          ),
+    return Scaffold(
+      backgroundColor: ShoesColors.loginBg,
+      body: Container(
+        margin: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _header(context),
+            _inputField(context),
+            _signup(context),
+          ],
         ),
       ),
     );
   }
+  //
   _header(context) {
     return const Column(
       children: [
         Text(
-          StaticText.headerTopName,
-          style: TextStyle(fontSize: 40, fontFamily: 'AirbnbCereal',fontWeight: FontWeight.bold),
+          StaticText.loginHeaderTopName,
+          style: TextStyle(
+              fontSize: 40,
+              fontFamily: 'AirbnbCereal',
+              fontWeight: FontWeight.bold),
         ),
-        Text("Enter your credential to login"),
+        Text(
+          StaticText.loginHeaderTitleName,
+          style: TextStyle(fontFamily: 'AirbnbCereal'),
+        ),
       ],
     );
   }
@@ -44,58 +47,95 @@ class LoginPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        TextField(
-          decoration: InputDecoration(
-              hintText: "Username",
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(18),
-                  borderSide: BorderSide.none
-              ),
-              fillColor: ShoesColors.textBg.withOpacity(0.1),
-              filled: true,
-              // prefixIcon: const Icon(Icons.person)
+        const Text(
+          StaticText.labelUserName,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 6),
         TextField(
           decoration: InputDecoration(
-            hintText: "Password",
+              // labelText: StaticText.labelUserName,
+              hintText: StaticText.labelUserName,
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide.none),
+              fillColor: ShoesColors.textBg,
+              filled: true,
+              floatingLabelStyle: const TextStyle(
+                fontSize: 25,
+              )
+              // prefixIcon: const Icon(Icons.person)
+              ),
+        ),
+        const SizedBox(height: 10),
+        const Text(
+          StaticText.labelPassword,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        const SizedBox(height: 6),
+        TextField(
+          decoration: InputDecoration(
+            hintText: StaticText.labelPassword,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
-            fillColor: Colors.white.withOpacity(0.1),
+            fillColor: ShoesColors.textBg,
             filled: true,
             // prefixIcon: const Icon(Icons.password),
           ),
           obscureText: true,
         ),
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            TextButton(
+              onPressed: () {},
+                child: const Text(
+                    StaticText.forgotPassword,
+                ),
+
+            ),
+          ],
+        ),
         const SizedBox(height: 10),
         ElevatedButton(
-          onPressed: () {
-
-          },
+          onPressed: () {},
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
             padding: const EdgeInsets.symmetric(vertical: 16),
-            backgroundColor: Colors.purple,
+            backgroundColor: ShoesColors.loginButtonColor,
           ),
           child: const Text(
             "Login",
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20,color: ShoesColors.textBg),
+          ),
+        ),
+        const SizedBox(height: 10),
+        ElevatedButton.icon(
+          onPressed: () {},
+          icon: const Icon(Icons.g_mobiledata),
+          style: ElevatedButton.styleFrom(
+              shape: const StadiumBorder(),
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            backgroundColor: ShoesColors.textBg,
+          ),
+          label: const Text(
+            "Sign in With Google",
+            style: TextStyle(fontSize: 20, color: Colors.black),
           ),
         )
+
       ],
     );
   }
 
-  _forgotPassword(context) {
-    return TextButton(
-      onPressed: () {},
-      child: const Text("Forgot password?",
-        style: TextStyle(color: Colors.purple),
-      ),
-    );
-  }
 
   _signup(context) {
     return Row(
@@ -106,12 +146,11 @@ class LoginPage extends StatelessWidget {
             onPressed: () {
               Get.toNamed('/signup');
             },
-            child: const Text("Sign Up", style: TextStyle(color: Colors.purple),)
-        )
+            child: const Text(
+              "Sign Up",
+              style: TextStyle(color: Colors.purple),
+            ))
       ],
     );
   }
-
-
-
 }
