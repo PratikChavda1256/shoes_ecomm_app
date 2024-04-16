@@ -10,7 +10,6 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ShoesColors.loginBg,
       body: Container(
         margin: const EdgeInsets.all(24),
         child: Column(
@@ -21,7 +20,6 @@ class LoginPage extends StatelessWidget {
             _signup(context),
           ],
         ),
-      ),
     );
   }
   //
@@ -141,7 +139,7 @@ class LoginPage extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Dont have an account? "),
+        const Text("Don't have an account? "),
         TextButton(
             onPressed: () {
               Get.toNamed('/signup');

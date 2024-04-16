@@ -25,7 +25,6 @@ flutter:
     - assets/images/
     - assets/images/startpages/
     - assets/images/loginpage/
-
   fonts:
     - family: AirbnbCereal
       fonts:
