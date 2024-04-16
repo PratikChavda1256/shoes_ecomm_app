@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:shoesapp/color/Colors.dart';
+import 'package:shoesapp/text/StaticText.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -7,8 +11,10 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+
         body: Container(
           margin: const EdgeInsets.all(24),
+          color: ShoesColors.loginBg,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -26,8 +32,8 @@ class LoginPage extends StatelessWidget {
     return const Column(
       children: [
         Text(
-          "Welcome Back",
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          StaticText.headerTopName,
+          style: TextStyle(fontSize: 40, fontFamily: 'AirbnbCereal',fontWeight: FontWeight.bold),
         ),
         Text("Enter your credential to login"),
       ],
@@ -45,9 +51,10 @@ class LoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none
               ),
-              fillColor: Colors.purple.withOpacity(0.1),
+              fillColor: ShoesColors.textBg.withOpacity(0.1),
               filled: true,
-              prefixIcon: const Icon(Icons.person)),
+              // prefixIcon: const Icon(Icons.person)
+          ),
         ),
         const SizedBox(height: 10),
         TextField(
@@ -56,15 +63,16 @@ class LoginPage extends StatelessWidget {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
-            fillColor: Colors.purple.withOpacity(0.1),
+            fillColor: Colors.white.withOpacity(0.1),
             filled: true,
-            prefixIcon: const Icon(Icons.password),
+            // prefixIcon: const Icon(Icons.password),
           ),
           obscureText: true,
         ),
         const SizedBox(height: 10),
         ElevatedButton(
           onPressed: () {
+
           },
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
@@ -96,7 +104,7 @@ class LoginPage extends StatelessWidget {
         const Text("Dont have an account? "),
         TextButton(
             onPressed: () {
-
+              Get.toNamed('/signup');
             },
             child: const Text("Sign Up", style: TextStyle(color: Colors.purple),)
         )
