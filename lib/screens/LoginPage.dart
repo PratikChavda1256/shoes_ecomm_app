@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
             _signup(context),
           ],
         ),
-    );
+    ));
   }
   //
   _header(context) {
