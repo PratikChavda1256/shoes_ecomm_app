@@ -10,6 +10,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      backgroundColor: ShoesColors.loginBg,
       body: Container(
         margin: const EdgeInsets.all(24),
         child: Column(
@@ -17,6 +19,9 @@ class LoginPage extends StatelessWidget {
           children: [
             _header(context),
             _inputField(context),
+
+            _googleSignInButton(context),
+
             _signup(context),
           ],
         ),
@@ -113,6 +118,7 @@ class LoginPage extends StatelessWidget {
           child: const Text(
             "Login",
             style: TextStyle(fontSize: 20,color: ShoesColors.textBg),
+
           ),
         ),
         const SizedBox(height: 10),
@@ -129,10 +135,29 @@ class LoginPage extends StatelessWidget {
             style: TextStyle(fontSize: 20, color: Colors.black),
           ),
         )
-
       ],
     );
   }
+  Widget _googleSignInButton(BuildContext context) {
+      return ElevatedButton.icon(
+        onPressed: () {
+          // _signInWithGoogle(context);
+        },
+        icon: Icon(Icons.login), // Change icon color
+        label: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 60),
+          child: const Text(
+            "Sign in with Google",
+            style: TextStyle(fontSize: 20, color: Colors.black),
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          shape: StadiumBorder(),
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          backgroundColor: ShoesColors.textBg, // Set Google button color
+        ),
+      );
+    }
 
 
   _signup(context) {

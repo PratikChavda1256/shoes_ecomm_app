@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shoesapp/routes/Routes.dart';
 
+import 'color/Colors.dart';
+
 void main() {
   runApp(const MainApp());
 }
@@ -16,6 +18,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/SplashScreen',
       getPages: getPages,
+      theme: ThemeData(fontFamily: 'AirbnbCereal'),
     );
   }
 }
