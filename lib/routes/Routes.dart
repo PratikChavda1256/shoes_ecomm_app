@@ -1,4 +1,5 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:shoesapp/screens/ForgotPassword.dart';
 import 'package:shoesapp/screens/LoginPage.dart';
 import 'package:shoesapp/screens/SignupPage.dart';
 import 'package:shoesapp/screens/SplashScreen.dart';
@@ -7,8 +8,11 @@ import 'package:shoesapp/screens/started-pages/SeconStartedPage.dart';
 import 'package:shoesapp/screens/started-pages/ThirdStartedPage.dart';
 
 class Routes {
-  static String screen1 = '/Login';
-  static String screen2 = '/Signup';
+  //login and signup and forgot password
+  static String signup = '/Login';
+  static String signin = '/Signup';
+  static String forgotpassword = '/ForgotPassword';
+
   static String screen3 = '/SplashScreen';
 
   static String screen4 = '/FirstStartedPage';
@@ -17,14 +21,23 @@ class Routes {
 }
 
 final getPages = [
+  //signin
   GetPage(
-    name: Routes.screen1,
+    name: Routes.signup,
     page: () => const LoginPage(),
   ),
+  //signup
   GetPage(
-    name: Routes.screen2,
+    name: Routes.signin,
     page: () => const SignupPage(),
   ),
+  //forgot password
+  GetPage(
+      name: Routes.forgotpassword,
+      page: () => const ForgotPassword(),
+  ),
+
+
   GetPage(
     name: Routes.screen3,
     page: () => const SplashScreen(),
