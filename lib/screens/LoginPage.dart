@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:shoesapp/color/Colors.dart';
+import 'package:shoesapp/customwidget/CustomTextField.dart';
+import 'package:shoesapp/customwidget/CustomeButton.dart';
+import 'package:shoesapp/customwidget/LabelWidget.dart';
 import 'package:shoesapp/text/StaticText.dart';
 
 class LoginPage extends StatelessWidget {
@@ -9,18 +12,19 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _header(context),
-            _inputField(context),
-            _signup(context),
-          ],
-        ),
-    );
+      return Scaffold(
+        body: Container(
+          margin: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+
+              _header(context),
+              _inputField(context),
+              _signup(context),
+            ],
+          ),
+      ));
   }
   //
   _header(context) {
@@ -29,7 +33,7 @@ class LoginPage extends StatelessWidget {
         Text(
           StaticText.loginHeaderTopName,
           style: TextStyle(
-              fontSize: 40,
+              fontSize: 28,
               fontFamily: 'AirbnbCereal',
               fontWeight: FontWeight.bold),
         ),
@@ -44,38 +48,12 @@ class LoginPage extends StatelessWidget {
   _inputField(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const Text(
-          StaticText.labelUserName,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+      children: <Widget>[
+        const LabelWidget(labelName: StaticText.labelUserName),
         const SizedBox(height: 6),
-        TextField(
-          decoration: InputDecoration(
-              // labelText: StaticText.labelUserName,
-              hintText: StaticText.labelUserName,
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none),
-              fillColor: ShoesColors.textBg,
-              filled: true,
-              floatingLabelStyle: const TextStyle(
-                fontSize: 25,
-              )
-              // prefixIcon: const Icon(Icons.person)
-              ),
-        ),
+        const CustomTextField(hintText: StaticText.labelUserName),
         const SizedBox(height: 10),
-        const Text(
-          StaticText.labelPassword,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+        const LabelWidget(labelName: StaticText.labelPassword),
         const SizedBox(height: 6),
         TextField(
           decoration: InputDecoration(
@@ -94,7 +72,9 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed('/ForgotPassword');
+              },
                 child: const Text(
                     StaticText.forgotPassword,
                 ),
@@ -103,22 +83,23 @@ class LoginPage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            shape: const StadiumBorder(),
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            backgroundColor: ShoesColors.loginButtonColor,
-          ),
-          child: const Text(
-            "Login",
-            style: TextStyle(fontSize: 20,color: ShoesColors.textBg),
-          ),
-        ),
-        const SizedBox(height: 10),
+        // ElevatedButton(
+        //   onPressed: () {},
+        //   style: ElevatedButton.styleFrom(
+        //     shape: const StadiumBorder(),
+        //     padding: const EdgeInsets.symmetric(vertical: 16),
+        //     backgroundColor: ShoesColors.loginButtonColor,
+        //   ),
+        //   child: const Text(
+        //     "Login",
+        //     style: TextStyle(fontSize: 20,color: ShoesColors.textBg),
+        //   ),
+        // ),
+        const CustomButton(buttonName: StaticText.loginButtonName),
+        const SizedBox(height: 30),
         ElevatedButton.icon(
           onPressed: () {},
-          icon: const Icon(Icons.g_mobiledata),
+          icon: const Image(image: AssetImage("assets/images/loginpage/googlelogo.png"),width: 24, height: 24),
           style: ElevatedButton.styleFrom(
               shape: const StadiumBorder(),
             padding: const EdgeInsets.symmetric(vertical: 16),
@@ -139,15 +120,16 @@ class LoginPage extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have an account? "),
+        const Text("Don't Have An Account?"),
         TextButton(
             onPressed: () {
-              Get.toNamed('/signup');
+              Get.toNamed('/Signup');
             },
             child: const Text(
-              "Sign Up",
-              style: TextStyle(color: Colors.purple),
-            ))
+              "Sign Up For Free",
+              style: TextStyle(color: Colors.black),
+            )
+        )
       ],
     );
   }
