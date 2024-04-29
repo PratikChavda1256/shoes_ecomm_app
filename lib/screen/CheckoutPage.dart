@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterprojects/colors/Colors.dart';
+import 'package:flutterprojects/Styles/color.dart';
 import 'package:flutterprojects/controller/CartController.dart';
 import 'package:flutterprojects/customwidget/CustomeButton.dart';
 import 'package:flutterprojects/models/Contact.dart';

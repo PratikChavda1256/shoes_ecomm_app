@@ -1,19 +1,16 @@
 
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutterprojects/controller/CartController.dart';
 import 'package:flutterprojects/customwidget/CustomeButton.dart';
 import 'package:flutterprojects/models/Product.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../routes/Routes.dart';
 
 class CartScreen extends StatefulWidget {
-  CartScreen({super.key});
+  const CartScreen({super.key});
 
   @override
   State<CartScreen> createState() => _CartScreenState();
@@ -138,7 +135,7 @@ class _CartScreenState extends State<CartScreen> {
                       Expanded(child: Container()),
                       Text(
                         '\$${cartControllerObj.subtotal.value.toStringAsFixed(2)}',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       )
                     ]),
                     const SizedBox(height: 15),
@@ -164,7 +161,7 @@ class _CartScreenState extends State<CartScreen> {
                       Expanded(child: Container()),
                       Text(
                         '\$${cartControllerObj.total.value.toStringAsFixed(2)}',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       )
                       // Text('Total: \$XX.XX',
                       //   style: TextStyle(fontWeight: FontWeight.bold)),
@@ -198,7 +195,7 @@ class _CartScreenState extends State<CartScreen> {
               onPressed: () {
                 Navigator.of(context).pop(); // Cancel
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
@@ -208,7 +205,7 @@ class _CartScreenState extends State<CartScreen> {
 
                 });*/// Confirm
               },
-              child: Text('Delete'),
+              child: const Text('Delete'),
             ),
           ],
         );

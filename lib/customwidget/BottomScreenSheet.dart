@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterprojects/Styles/color.dart';
 import 'package:flutterprojects/Styles/font_styles.dart';
-import 'package:flutterprojects/colors/Colors.dart';
 import 'package:flutterprojects/customwidget/CustomFilterButton.dart';
 import 'package:flutterprojects/statictext/StaticText.dart';
 

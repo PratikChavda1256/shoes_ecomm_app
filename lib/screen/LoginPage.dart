@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterprojects/colors/Colors.dart';
+import 'package:flutterprojects/Styles/color.dart';
 import 'package:flutterprojects/customwidget/CustomTextField.dart';
 import 'package:flutterprojects/customwidget/CustomeButton.dart';
 import 'package:flutterprojects/customwidget/LabelWidget.dart';
@@ -30,11 +30,16 @@ class _LoginPageState extends State<LoginPage> {
       Get.snackbar('Login Failed', 'Please enter username and password');
       return;
     }
-    bool success = await authService.login(username, password);
-    if (success) {
-      Get.toNamed(Routes.dashboard);
-    } else {
-      Get.snackbar('Login Failed', 'Invalid username or password');
+    try {
+      bool success = await authService.login(username, password);
+      if (success) {
+        Get.toNamed(Routes.dashboard);
+      } else {
+        Get.snackbar('Login Failed', 'Invalid username or password');
+      }
+    }catch (e){
+      print('Login Error: $e');
+      Get.snackbar('Login Failed', 'An error occurred during login');
     }
   }
 
@@ -57,7 +62,10 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).size.height- 90,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height - 90,
           margin: const EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -69,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
               // const Spacer(),
               Expanded(child: Container()),
               _signup(context),
-        
+
             ],
           ),
         ),
@@ -110,28 +118,29 @@ class _LoginPageState extends State<LoginPage> {
         const LabelWidget(labelName: StaticText.labelPassword),
         const SizedBox(height: 6),
         Obx(
-              () => TextField(
-            controller: _passwordController,
-            decoration: InputDecoration(
-              hintText: StaticText.labelPassword,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(18),
-                borderSide: BorderSide.none,
-              ),
-              fillColor: ShoesColors.textBg,
-              filled: true,
-              suffixIcon: GestureDetector(
-                onTap: _togglePasswordVisibility,
-                child: Icon(
-                  _isPasswordVisible.value
-                      ? Icons.visibility
-                      : Icons.visibility_off,
-                  color: Colors.grey,
+              () =>
+              TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(
+                  hintText: StaticText.labelPassword,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(18),
+                    borderSide: BorderSide.none,
+                  ),
+                  fillColor: ShoesColors.textBg,
+                  filled: true,
+                  suffixIcon: GestureDetector(
+                    onTap: _togglePasswordVisibility,
+                    child: Icon(
+                      _isPasswordVisible.value
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: Colors.grey,
+                    ),
+                  ),
                 ),
+                obscureText: !_isPasswordVisible.value,
               ),
-            ),
-            obscureText: !_isPasswordVisible.value,
-          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,

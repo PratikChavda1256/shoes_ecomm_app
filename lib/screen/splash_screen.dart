@@ -18,17 +18,27 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(const Duration(seconds: 4), () {
+      try {
         checkLoginStatus();
+      } catch (e) {
+        print("Error in Splash Screen: $e");
+        // Handle error gracefully, show a message or navigate to an error page.
+      }
     });
   }
   void checkLoginStatus() async {
-    final AuthController authService = AuthController();
-    bool isLoggedIn = await authService.isLoggedIn();
-    await Future.delayed(const Duration(milliseconds: 2000)); // Optional delay
-    if (isLoggedIn) {
-      Get.offNamed(Routes.dashboard); // Navigate to Home if logged in
-    } else {
-      Get.offNamed(Routes.onBoardPageView); // Navigate to FirstStartedPage if not logged in
+    try {
+      final AuthController authService = AuthController();
+      bool isLoggedIn = await authService.isLoggedIn();
+      await Future.delayed(const Duration(milliseconds: 2000)); // Optional delay
+      if (isLoggedIn) {
+        Get.offNamed(Routes.dashboard); // Navigate to Home if logged in
+      } else {
+        Get.offNamed(Routes.onBoardPageView); // Navigate to FirstStartedPage if not logged in
+      }
+    } catch (e) {
+      print("Error in checkLoginStatus: $e");
+      // Handle error gracefully, show a message or navigate to an error page.
     }
   }
   @override

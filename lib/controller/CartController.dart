@@ -1,4 +1,4 @@
-import 'package:flutterprojects/colors/Colors.dart';
+import 'package:flutterprojects/Styles/color.dart';
 import 'package:flutterprojects/models/Product.dart';
 import 'package:get/get.dart';
 

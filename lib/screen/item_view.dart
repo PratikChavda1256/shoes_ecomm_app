@@ -92,9 +92,9 @@ class _ItemViewState extends State<ItemView> {
                             child: Container(
                               width: 44.0,
                               height: 44.0,
-                              decoration: BoxDecoration(
-                                color: customBlue,
-                                borderRadius: const BorderRadius.only(
+                              decoration: const BoxDecoration(
+                                color: ShoesColors.customBlue,
+                                borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(20.0),
                                     bottomRight: Radius.circular(16.0)),
                               ),

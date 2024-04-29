@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterprojects/colors/Colors.dart';
+import 'package:flutterprojects/Styles/color.dart';
 import 'package:flutterprojects/controller/AuthController.dart';
 import 'package:flutterprojects/customwidget/CustomTextField.dart';
 import 'package:flutterprojects/customwidget/CustomeButton.dart';
@@ -9,36 +9,46 @@ import 'package:flutterprojects/statictext/StaticText.dart';
 import 'package:get/get.dart';
 
 
-class SignupPage extends StatelessWidget {
-  SignupPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
+
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
   final AuthController authService = AuthController();
-  RxBool _isPasswordVisible = false.obs;
+
+  final RxBool _isPasswordVisible = false.obs;
+
   final TextEditingController _emailController = TextEditingController();
+
   final TextEditingController _passwordController = TextEditingController();
 
   void _signUp(BuildContext context) async {
-    String email = _emailController.text.trim();
-    String password = _passwordController.text.trim();
-    RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-    if (!emailRegex.hasMatch(email)) {
-      Get.snackbar('Signup Failed', 'Please enter a valid email address');
-      return;
+    try {
+      String email = _emailController.text.trim();
+      String password = _passwordController.text.trim();
+      RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+      if (!emailRegex.hasMatch(email)) {
+        Get.snackbar('Signup Failed', 'Please enter a valid email address');
+        return;
+      }
+      if (email.isEmpty || password.isEmpty) {
+        // Show error message if username or password is empty
+        Get.snackbar('Signup Failed', 'Please fill in all fields');
+        return;
+      }
+      await authService.signUp(email, password);
+      Get.offNamed(Routes.login);
+    } catch (e) {
+      print("Error during signup: $e");
+      // Handle error gracefully, show a message or navigate to an error page.
     }
-    if (email.isEmpty || password.isEmpty) {
-      // Show error message if username or password is empty
-      Get.snackbar('Signup Failed', 'Please fill in all fields');
-      return;
-    }
-
-    await authService.signUp(email, password);
-
-
-    Get.offNamed(Routes.login);
   }
+
   void _togglePasswordVisibility() {
-
     _isPasswordVisible.value = !_isPasswordVisible.value;
-
   }
 
   @override
@@ -66,9 +76,6 @@ class SignupPage extends StatelessWidget {
           ),
         ));
   }
-
-
-
 
   _header(context) {
     return const Column(
@@ -151,7 +158,6 @@ class SignupPage extends StatelessWidget {
       ],
     );
   }
-
 
   _signup(context) {
     return Row(

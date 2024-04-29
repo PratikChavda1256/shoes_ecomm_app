@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: bgWhite,
+        color: ShoesColors.bgWhite,
         child: Padding(
           padding: const EdgeInsets.only(top: 50.0),
           child: Column(
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                             width: double.infinity,
                             height: 48.0,
                             child: TextFormField(
-                              cursorColor: customBlue,
+                              cursorColor: ShoesColors.customBlue,
                               cursorWidth: 2.5,
                               style: textStyle1,
                               decoration: InputDecoration(
@@ -174,7 +174,9 @@ class _HomePageState extends State<HomePage> {
                               style: textStyle4,
                             ),
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.toNamed(Routes.bestSeller);
+                                },
                                 child: Text(
                                   "See all",
                                   style: textStyle5,
@@ -291,7 +293,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Get.toNamed(Routes.cart);
             },
-            backgroundColor: customBlue,
+            backgroundColor: ShoesColors.customBlue,
             elevation: 10,
             child: Image.asset(
               "assets/icons/bag_ic.png",
@@ -325,7 +327,7 @@ class _HomePageState extends State<HomePage> {
                   child: Image.asset("assets/icons/home_ic.png",
                       width: 25,
                       height: 25,
-                      color: navigationIndex == 0 ? customBlue : customGrey),
+                      color: navigationIndex == 0 ? ShoesColors.customBlue : ShoesColors.customGrey),
                 ),
                 InkWell(
                   onTap: () {
@@ -335,7 +337,7 @@ class _HomePageState extends State<HomePage> {
                   child: Image.asset("assets/icons/favourite_ic.png",
                       width: 25,
                       height: 25,
-                      color: navigationIndex == 1 ? customBlue : customGrey),
+                      color: navigationIndex == 1 ? ShoesColors.customBlue : ShoesColors.customGrey),
                 ),
                 const SizedBox(
                   width: 60.0,
@@ -348,7 +350,7 @@ class _HomePageState extends State<HomePage> {
                   child: Image.asset("assets/icons/notify_ic.png",
                       width: 25,
                       height: 25,
-                      color: navigationIndex == 2 ? customBlue : customGrey),
+                      color: navigationIndex == 2 ? ShoesColors.customBlue : ShoesColors.customGrey),
                 ),
                 InkWell(
                   onTap: () {
@@ -358,7 +360,7 @@ class _HomePageState extends State<HomePage> {
                   child: Image.asset("assets/icons/user_ic.png",
                       width: 25,
                       height: 25,
-                      color: navigationIndex == 3 ? customBlue : customGrey),
+                      color: navigationIndex == 3 ? ShoesColors.customBlue : ShoesColors.customGrey),
                 ),
               ],
             ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterprojects/colors/Colors.dart';
+import 'package:flutterprojects/Styles/color.dart';
 import 'package:flutterprojects/customwidget/CustomeButton.dart';
 
 class CustomPageIndicator extends StatefulWidget {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterprojects/colors/Colors.dart';
 import 'package:flutterprojects/controller/OnBoardController.dart';
 import 'package:flutterprojects/customwidget/CustomPageIndicator.dart';
 import 'package:flutterprojects/routes/Routes.dart';

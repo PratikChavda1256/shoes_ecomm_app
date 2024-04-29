@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterprojects/Styles/color.dart';
-import 'package:flutterprojects/colors/Colors.dart';
 
-TextStyle textStyle1 = TextStyle(
-    color: customGrey,
+TextStyle textStyle1 = const TextStyle(
+    color: ShoesColors.customGrey,
     fontSize: 12.0,
     fontWeight: FontWeight.w600,
     fontFamily: "airbnb");
@@ -14,14 +13,14 @@ TextStyle textStyle8 = const TextStyle(
     fontWeight: FontWeight.w600,
     fontFamily: "airbnb");
 
-TextStyle textStyle2 = TextStyle(
-    color: customBlack,
+TextStyle textStyle2 = const TextStyle(
+    color: ShoesColors.customBlack,
     fontSize: 14.0,
     fontWeight: FontWeight.w600,
     fontFamily: "airbnb");
 
-TextStyle textStyle7 = TextStyle(
-    color: customGrey,
+TextStyle textStyle7 = const TextStyle(
+    color: ShoesColors.customGrey,
     fontSize: 14.0,
     fontWeight: FontWeight.w600,
     fontFamily: "airbnb");
@@ -32,20 +31,20 @@ TextStyle textStyle3 = const TextStyle(
     fontWeight: FontWeight.w600,
     fontFamily: "airbnb");
 
-TextStyle textStyle4 = TextStyle(
-    color: customBlack,
+TextStyle textStyle4 = const TextStyle(
+    color: ShoesColors.customBlack,
     fontSize: 16.0,
     fontWeight: FontWeight.w600,
     fontFamily: "airbnb");
 
-TextStyle textStyle5 = TextStyle(
-    color: customBlue,
+TextStyle textStyle5 = const TextStyle(
+    color: ShoesColors.customBlue,
     fontSize: 15.0,
     fontWeight: FontWeight.w600,
     fontFamily: "airbnb");
 
-TextStyle textStyle6 = TextStyle(
-    color: customBlue,
+TextStyle textStyle6 = const TextStyle(
+    color: ShoesColors.customBlue,
     fontSize: 10.0,
     fontWeight: FontWeight.w600,
     fontFamily: "airbnb");
@@ -56,8 +55,8 @@ TextStyle textStyle18px = const TextStyle(
     fontWeight: FontWeight.w500,
     fontFamily: "airbnb");
 
-TextStyle textStyle16px = TextStyle(
-    color: customBlack,
+TextStyle textStyle16px = const TextStyle(
+    color: ShoesColors.customBlack,
     fontSize: 16.0,
     fontWeight: FontWeight.w400,
     fontFamily: "airbnb");

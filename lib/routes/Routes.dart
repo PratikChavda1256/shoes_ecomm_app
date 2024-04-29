@@ -1,5 +1,6 @@
 import 'package:flutterprojects/customwidget/ShoeSearchPage.dart';
 import 'package:flutterprojects/screen/AccountSetting.dart';
+import 'package:flutterprojects/screen/BestSeller.dart';
 import 'package:flutterprojects/screen/CheckoutPage.dart';
 import 'package:flutterprojects/screen/ForgotPassword.dart';
 import 'package:flutterprojects/screen/LoginPage.dart';
@@ -32,6 +33,7 @@ class Routes {
   static String checkOut = '/CheckoutPage';
   static String accountSetting = '/AccountSetting';
   static String searchPage = '/SearchPage';
+  static String bestSeller = '/BestSeller' ;
 }
 
 final getPages = [
@@ -98,5 +100,9 @@ final getPages = [
   GetPage(
     name: Routes.searchPage,
     page: () =>const SearchBarApp(),
+  ),
+  GetPage(
+    name: Routes.bestSeller,
+    page: () => const BestSeller(),
   ),
 ];

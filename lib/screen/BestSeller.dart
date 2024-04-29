@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutterprojects/controller/ProductController.dart';
 import 'package:flutterprojects/customwidget/CustomCardFavourite.dart';
+import 'package:flutterprojects/routes/Routes.dart';
 import 'package:get/get.dart';
 
-class FavouriteScreen extends StatefulWidget {
-  const FavouriteScreen({super.key});
+class BestSeller extends StatefulWidget {
+  const BestSeller({super.key});
 
   @override
-  State<FavouriteScreen> createState() => _FavouriteScreenState();
+  State<BestSeller> createState() => _BestSellerState();
 }
 
-class _FavouriteScreenState extends State<FavouriteScreen> {
-  ProductController productControllerObj = Get.find<ProductController>();
+class _BestSellerState extends State<BestSeller> {
 
+  @override
+  void initState() {
+    super.initState();
+    Get.put(productControllerObj);
+  }
+
+  ProductController productControllerObj = Get.find<ProductController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +35,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    Get.offNamed(Routes.dashboard);
                   },
                   child: Container(
                     width: 45,
@@ -44,7 +51,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                   ),
                 ),
                 const Text(
-                  'Favourite',
+                  'Best Sellers',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
@@ -52,13 +59,21 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                 ),
                 InkWell(
                   child: Container(
-                    width: 45,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30.0),
+                    width: 70,
+                    height: 70,
+                    // decoration: BoxDecoration(
+                    //   color: Colors.white,
+                    //   borderRadius: BorderRadius.circular(30.0),
+                    // ),
+                    child: const Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(right: 8.0),
+                          child: Image(image:AssetImage("assets/images/sort.png"),width: 24,height: 24,),
+                        ),
+                        Image(image:AssetImage("assets/images/search.png"),width: 24,height: 24,),
+                      ],
                     ),
-                    child: const Image(image:AssetImage("assets/images/favourite.png")),
 
                   ),
                 ),
@@ -73,7 +88,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
               children: List.generate(productControllerObj.products.length, (index) {
                 return Container(margin:const EdgeInsets.all(10),height:200,child:
                 CustomCardFavourite(index: index,
-                    objProduct: productControllerObj.products[index], isFavourite: true,));
+                  objProduct: productControllerObj.products[index], isFavourite: false,));
               }),
             ),
           ),

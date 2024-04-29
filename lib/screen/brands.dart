@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
+import 'package:flutterprojects/Styles/color.dart';
 import 'package:get/get.dart';
 
-import '../Styles/color.dart';
 import '../Styles/font_styles.dart';
 
 class Brands extends StatefulWidget {
@@ -31,7 +31,7 @@ class _BrandsState extends State<Brands> {
                   height: 44.0,
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
-                      color: customBlue,
+                      color: ShoesColors.customBlue,
                       borderRadius: BorderRadius.circular(100.0)),
                   duration: const Duration(milliseconds: 1000),
                   child: Padding(
@@ -71,7 +71,7 @@ class _BrandsState extends State<Brands> {
                   height: 44.0,
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
-                      color: customBlue,
+                      color: ShoesColors.customBlue,
                       borderRadius: BorderRadius.circular(100.0)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 45, right: 10),
@@ -110,7 +110,7 @@ class _BrandsState extends State<Brands> {
                   height: 44.0,
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
-                      color: customBlue,
+                      color: ShoesColors.customBlue,
                       borderRadius: BorderRadius.circular(100.0)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 45, right: 10),
@@ -148,7 +148,7 @@ class _BrandsState extends State<Brands> {
                   height: 44.0,
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
-                      color: customBlue,
+                      color: ShoesColors.customBlue,
                       borderRadius: BorderRadius.circular(100.0)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 45, right: 10),
@@ -187,7 +187,7 @@ class _BrandsState extends State<Brands> {
                   height: 44.0,
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
-                      color: customBlue,
+                      color: ShoesColors.customBlue,
                       borderRadius: BorderRadius.circular(100.0)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 45, right: 10),
@@ -223,7 +223,7 @@ class _BrandsState extends State<Brands> {
                   height: 44.0,
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
-                      color: customBlue,
+                      color: ShoesColors.customBlue,
                       borderRadius: BorderRadius.circular(100.0)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 45, right: 10),

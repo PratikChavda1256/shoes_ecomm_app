@@ -7,7 +7,7 @@ import 'package:flutterprojects/Styles/font_styles.dart';
 import 'package:get/get.dart';
 
 class ProductView extends StatefulWidget {
-  const ProductView({Key? key}) : super(key: key);
+  const ProductView({super.key});
 
   @override
   State<ProductView> createState() => _ProductViewState();
@@ -21,7 +21,7 @@ class _ProductViewState extends State<ProductView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgWhite,
+      backgroundColor: ShoesColors.bgWhite,
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
@@ -37,7 +37,12 @@ class _ProductViewState extends State<ProductView> {
                   children: [
                     Bounce(
                         onPressed: () {
-                          Navigator.pop(context);
+                          try {
+                            Navigator.pop(context);
+                          } catch (e) {
+                            print("Error navigating back: $e");
+                            // Handle error gracefully, show a message or navigate to an error page.
+                          }
                         },
                         duration: const Duration(milliseconds: 500),
                         child: Image.asset(
@@ -137,7 +142,7 @@ class _ProductViewState extends State<ProductView> {
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Obx(
-                            ()=> Row(
+                                ()=> Row(
                               children: [
                                 Bounce(
                                   onPressed: () {
@@ -150,10 +155,10 @@ class _ProductViewState extends State<ProductView> {
                                     height: 56.0,
                                     decoration: BoxDecoration(
                                         color: selectShows.value == 0
-                                            ? customBlue
-                                            : bgWhite,
+                                            ? ShoesColors.customBlue
+                                            : ShoesColors.bgWhite,
                                         borderRadius:
-                                            BorderRadius.circular(16.0)),
+                                        BorderRadius.circular(16.0)),
                                     child: Image.asset("assets/shows/img2.png"),
                                   ),
                                 ),
@@ -171,10 +176,10 @@ class _ProductViewState extends State<ProductView> {
                                     height: 56.0,
                                     decoration: BoxDecoration(
                                         color: selectShows.value == 1
-                                            ? customBlue
-                                            : bgWhite,
+                                            ? ShoesColors.customBlue
+                                            : ShoesColors.bgWhite,
                                         borderRadius:
-                                            BorderRadius.circular(16.0)),
+                                        BorderRadius.circular(16.0)),
                                     child: Image.asset("assets/shows/img3.png"),
                                   ),
                                 ),
@@ -192,10 +197,10 @@ class _ProductViewState extends State<ProductView> {
                                     height: 56.0,
                                     decoration: BoxDecoration(
                                         color: selectShows.value == 2
-                                            ? customBlue
-                                            : bgWhite,
+                                            ? ShoesColors.customBlue
+                                            : ShoesColors.bgWhite,
                                         borderRadius:
-                                            BorderRadius.circular(16.0)),
+                                        BorderRadius.circular(16.0)),
                                     child: Image.asset("assets/shows/img1.png"),
                                   ),
                                 ),
@@ -207,7 +212,7 @@ class _ProductViewState extends State<ProductView> {
                           height: 15.0,
                         ),
                         Obx(
-                          ()=> Row(
+                              ()=> Row(
                             children: [
                               Text(
                                 "Size",
@@ -261,7 +266,7 @@ class _ProductViewState extends State<ProductView> {
                           height: 10.0,
                         ),
                         Obx(
-                          ()=> Row(
+                              ()=> Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Bounce(
@@ -273,11 +278,11 @@ class _ProductViewState extends State<ProductView> {
                                 child: CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                      sizeIndex.value == 0 ? customBlue : bgWhite,
+                                  sizeIndex.value == 0 ? ShoesColors.customBlue : ShoesColors.bgWhite,
                                   child: Text(
                                     "38",
                                     style:
-                                        sizeIndex.value == 0 ? textStyle8 : textStyle1,
+                                    sizeIndex.value == 0 ? textStyle8 : textStyle1,
                                   ),
                                 ),
                               ),
@@ -290,11 +295,11 @@ class _ProductViewState extends State<ProductView> {
                                 child: CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                      sizeIndex.value == 1 ? customBlue : bgWhite,
+                                  sizeIndex.value == 1 ? ShoesColors.customBlue : ShoesColors.bgWhite,
                                   child: Text(
                                     "39",
                                     style:
-                                        sizeIndex.value == 1 ? textStyle8 : textStyle1,
+                                    sizeIndex.value == 1 ? textStyle8 : textStyle1,
                                   ),
                                 ),
                               ),
@@ -307,11 +312,11 @@ class _ProductViewState extends State<ProductView> {
                                 child: CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                      sizeIndex.value == 2 ? customBlue : bgWhite,
+                                  sizeIndex.value == 2 ? ShoesColors.customBlue : ShoesColors.bgWhite,
                                   child: Text(
                                     "40",
                                     style:
-                                        sizeIndex.value == 2 ? textStyle8 : textStyle1,
+                                    sizeIndex.value == 2 ? textStyle8 : textStyle1,
                                   ),
                                 ),
                               ),
@@ -324,11 +329,11 @@ class _ProductViewState extends State<ProductView> {
                                 child: CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                      sizeIndex.value == 3 ? customBlue : bgWhite,
+                                  sizeIndex.value == 3 ? ShoesColors.customBlue : ShoesColors.bgWhite,
                                   child: Text(
                                     "41",
                                     style:
-                                        sizeIndex.value == 3 ? textStyle8 : textStyle1,
+                                    sizeIndex.value == 3 ? textStyle8 : textStyle1,
                                   ),
                                 ),
                               ),
@@ -341,11 +346,11 @@ class _ProductViewState extends State<ProductView> {
                                 child: CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                      sizeIndex.value == 4 ? customBlue : bgWhite,
+                                  sizeIndex.value == 4 ? ShoesColors.customBlue : ShoesColors.bgWhite,
                                   child: Text(
                                     "41",
                                     style:
-                                        sizeIndex.value == 4 ? textStyle8 : textStyle1,
+                                    sizeIndex.value == 4 ? textStyle8 : textStyle1,
                                   ),
                                 ),
                               ),
@@ -358,11 +363,11 @@ class _ProductViewState extends State<ProductView> {
                                 child: CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                      sizeIndex.value == 5 ? customBlue : bgWhite,
+                                  sizeIndex.value == 5 ? ShoesColors.customBlue : ShoesColors.bgWhite,
                                   child: Text(
                                     "41",
                                     style:
-                                        sizeIndex.value == 5 ? textStyle8 : textStyle1,
+                                    sizeIndex.value == 5 ? textStyle8 : textStyle1,
                                   ),
                                 ),
                               ),
@@ -381,16 +386,16 @@ class _ProductViewState extends State<ProductView> {
       bottomNavigationBar: Container(
         width: double.infinity,
         height: 70.0,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Colors.white,
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
                 topRight: Radius.circular(24.0),
                 topLeft: Radius.circular(24.0)),
             boxShadow: [
               BoxShadow(
                 spreadRadius: 0.1,
                 blurRadius: 25,
-                color: bgWhite,
+                color: ShoesColors.bgWhite,
               )
             ]),
         child: Padding(
@@ -423,13 +428,13 @@ class _ProductViewState extends State<ProductView> {
                   height: 55.0,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: customBlue,
+                      color: ShoesColors.customBlue,
                       borderRadius: BorderRadius.circular(50.0),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           spreadRadius: 1,
                           blurRadius: 5,
-                          color: customBlue,
+                          color: ShoesColors.customBlue,
                         )
                       ]),
                   child: const Text(

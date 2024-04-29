@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterprojects/colors/Colors.dart';
+import 'package:flutterprojects/Styles/color.dart';
 import 'package:flutterprojects/customwidget/CustomTextField.dart';
 import 'package:flutterprojects/customwidget/LabelWidget.dart';
 import 'package:flutterprojects/routes/Routes.dart';
@@ -7,7 +7,7 @@ import 'package:flutterprojects/statictext/StaticText.dart';
 import 'package:get/get.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
@@ -20,7 +20,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: IconButton(
           icon: const Icon(Icons.chevron_left,size: 30,),
           onPressed: () {
-            Get.back();
+            try {
+              Get.offNamed(Routes.dashboard);
+            }catch(e){
+              print("Error navigating to dashboard : $e");
+            }
           },
         ),
         title: const Text('Profile'),
@@ -29,7 +33,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
           IconButton(
             icon: const Image(image: AssetImage("assets/images/profile/editicon.png"),width: 20,height: 20,),
             onPressed: () {
-              Get.toNamed(Routes.accountSetting);
+              try{
+                Get.toNamed(Routes.accountSetting);
+              }catch(e){
+                print("Error navigating to account setting : $e");
+              }
             },
           ),
         ],
@@ -63,9 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const Text(StaticText.userName,style: TextStyle(fontSize: 20,
                     fontWeight: FontWeight.w500),),
                 const SizedBox(height: 20),
-        
                 _inputField(context),
-        
               ],
             ),
           ),
